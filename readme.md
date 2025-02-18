@@ -9,6 +9,9 @@ This repository contains a console-based sobriety tracking application written i
 - **Display a formatted calendar** – On startup, the current month’s calendar is shown with days color-coded (green for sober, red for drinking). You can also display the calendar for any given month along with corresponding statistics.
 - **Export a report to Excel** – Generate an Excel report (`report <Month> <Year>.xlsx`) containing log entries and a summary.
 
+![Main menu](images/demo1.png)
+![Statistics](images/demo2.png)
+
 ## Requirements
 
 - Python 3.x

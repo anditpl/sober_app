@@ -1,0 +1,13 @@
+{
+    "daily_drink_cost": 0.0,
+    "daily_log": {
+        "2025-02-18": {
+            "sober": true,
+            "mood": "good",
+            "notes": "",
+            "alcohol_type": "",
+            "alcohol_amount": "",
+            "amount_spent": 0.0
+        }
+    }
+}
