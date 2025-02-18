@@ -2,6 +2,12 @@
 Main entry point for the Sobriety Tracking Application.
 """
 
+import os
+# Suppress pygame support message
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
+
+import pygame
+import time
 from app.data_manager import load_data
 from app.tracker import SobrietyTracker
 from app.ui import display_current_calendar, display_given_calendar
@@ -9,6 +15,20 @@ from app.report import ExcelReport
 from app.constants import MONTH_NAMES, DEFAULT_AMOUNT
 from colorama import Fore
 from datetime import datetime
+
+def reward_sober() -> None:
+    """
+    Plays an applause MP3 file using pygame when the user marks a sober day.
+    The MP3 file (e.g., 'applause.mp3') should be located in the 'sounds' folder.
+    """
+    try:
+        pygame.mixer.init()
+        pygame.mixer.music.load("sounds/applause.mp3")
+        pygame.mixer.music.play()
+        while pygame.mixer.music.get_busy():
+            time.sleep(0.1)
+    except Exception as e:
+        print(Fore.RED + f"Error playing MP3: {e}")
 
 def main_menu() -> None:
     """
@@ -30,7 +50,6 @@ def main_menu() -> None:
         choice = input(Fore.CYAN + "Select an option: ").strip()
 
         if choice == "1":
-            # Prompt user for log entry details (if sober, skip alcohol-related prompts)
             date_str = input("Enter date (YYYY-MM-DD) or leave blank for today: ").strip()
             status_input = input("Consumed alcohol? (y/n): ").strip().lower()
             sober = (status_input == "n")
@@ -47,7 +66,10 @@ def main_menu() -> None:
                 alcohol_type = ""
                 alcohol_amount = ""
                 amount_spent = 0.0
+
             tracker.log_entry(date_str, sober, mood, notes, alcohol_type, alcohol_amount, amount_spent)
+            if sober:
+                reward_sober()
         elif choice == "2":
             print(Fore.BLUE + "\n========= ALL STATISTICS =========")
             stats = tracker.get_statistics()

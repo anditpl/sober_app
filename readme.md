@@ -17,8 +17,9 @@ This repository contains a console-based sobriety tracking application written i
 - Python 3.x
 - [colorama](https://pypi.org/project/colorama/) – for colored console output
 - [openpyxl](https://pypi.org/project/openpyxl/) – for Excel report generation
+- [pygame](https://pypi.org/project/pygame/) – for playing MP3 files
 
 Install the required libraries using pip:
 
 ```bash
-pip install colorama openpyxl
+pip install colorama openpyxl pygame
