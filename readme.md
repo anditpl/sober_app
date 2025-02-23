@@ -2,6 +2,8 @@
 
 **Note:** This application was developed by Łukasz Krause with the assistance of ChatGPT using dozens of prompts—from creating the database to adding new functions, refactoring, and implementing improvements—all within one day.
 
+The program was created to test ChatGPT's capabilities in generating code and providing assistance in programming.
+
 This repository contains a console-based sobriety tracking application written in Python. The application allows you to:
 
 - **Log daily entries** – Record whether you consumed alcohol on a given day along with your mood, notes, type and amount of alcohol, and the amount spent.
